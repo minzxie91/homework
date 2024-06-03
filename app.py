@@ -15,6 +15,7 @@
 
 import os
 import sys
+import homework as ho
 from argparse import ArgumentParser
 
 from flask import Flask, request, abort
@@ -67,7 +68,7 @@ def callback():
 
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=event.message.text)
+            TextSendMessage(text=ho.read(event.message.text))
         )
 
     return 'OK'
